@@ -1,7 +1,8 @@
 import { useArticles } from "@/libs/microcms_api";
 import Link from "next/link";
-import type { Article } from "@/types/article";
+import type { Article } from "@/types/Article";
 import { formatDate } from "@/libs/fotmat_date";
+
 export default function Home() {
   const { articles, error } = useArticles();
   if (error) return <p>エラーが発生しました</p>;
