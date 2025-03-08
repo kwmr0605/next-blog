@@ -33,7 +33,7 @@ export default function ArticleDetail({
       <div className="my-10">
         <h1 className="text-3xl font-bold text-center mb-6">{article.title}</h1>
         <div className="text-center">
-          <p>{formatDate(article.publishedAt)}</p>
+          <p className="text-sm">{formatDate(article.publishedAt)}</p>
         </div>
       </div>
       <div className="flex">
