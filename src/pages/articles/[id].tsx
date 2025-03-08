@@ -29,7 +29,7 @@ export default function ArticleDetail({
   if (router.isFallback) return <p>読み込み中...</p>;
 
   return (
-    <div className="max-w-[1200px] mx-auto">
+    <div className="max-w-[1200px] mx-auto mb-20">
       <div className="my-10">
         <h1 className="text-3xl font-bold text-center mb-6">{article.title}</h1>
         <div className="text-center">
