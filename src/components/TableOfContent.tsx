@@ -33,8 +33,6 @@ export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
     };
   }, [toc]);
 
-  console.log(toc);
-
   return (
     <div className="bg-white p-4 rounded-sm sticky top-4">
       <p className="font-bold text-lg mb-4">目次</p>
