@@ -1,21 +1,58 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import type { Article } from "@/types/article";
-import { fetchArticles, fetchArticleById } from "@/lib/microcms_api";
+import { fetchArticles, fetchArticleById } from "@/libs/microcms_api";
+import { renderToc } from "@/libs/render_toc";
+import { TableOfContents } from "@/components/TableOfContent";
+import { parse } from "node-html-parser";
+import { formatDate } from "@/libs/fotmat_date";
+import { TocItem } from "@/types/tocItem";
 
-export default function ArticleDetail({ article }: { article: Article }) {
+// 見出しのid要素に見出しテキストを指定
+function addIdsToHeadings(html: string): string {
+  const root = parse(html);
+  root.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((heading) => {
+    const text = heading.text.trim();
+    heading.setAttribute("id", text);
+  });
+  return root.toString();
+}
+
+export default function ArticleDetail({
+  article,
+  toc,
+}: {
+  article: Article;
+  toc: TocItem[];
+}) {
   const router = useRouter();
   if (router.isFallback) return <p>読み込み中...</p>;
 
   return (
-    <article className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <h1 className="text-2xl font-bold text-green-600">{article.title}</h1>
-      <p className="text-gray-500">{article.publishedAt}</p>
-      <div
-        dangerouslySetInnerHTML={{ __html: article.content }}
-        className="prose mt-4"
-      />
-    </article>
+    <div className="max-w-[1200px] mx-auto">
+      <div className="my-10">
+        <h1 className="text-3xl font-bold text-center mb-6">{article.title}</h1>
+        <div className="text-center">
+          <p>{formatDate(article.publishedAt)}</p>
+        </div>
+      </div>
+      <div className="flex">
+        <article className="flex-1 max-w-5xl p-6 bg-white rounded-sm">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: addIdsToHeadings(article.content),
+            }}
+            className="prose mt-4"
+          />
+        </article>
+        <aside
+          className="w-[300px] pl-4 hidden md:block"
+          style={{ position: "sticky", top: "1rem" }}
+        >
+          <TableOfContents toc={toc} />
+        </aside>
+      </div>
+    </div>
   );
 }
 
@@ -30,6 +67,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const article = await fetchArticleById(params?.id as string);
-
-  return { props: { article }, revalidate: 10 };
+  const toc = renderToc(article.content);
+  return { props: { article, toc }, revalidate: 10 };
 };

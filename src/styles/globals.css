@@ -3,7 +3,41 @@
 @tailwind utilities;
 
 body {
-    font-family: 'Noto Sans JP', sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #d8e6e0;
+  color: #2c3e3b;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #4a9283;
+}
+
+h2 {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e3b;
+  padding: 4px 0 4px 20px;
+  margin: 12px 0;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 80%;
+  background-color: #4a9283; /* ティールブルー */
+  transform: translateY(-50%);
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e3b;
 }
