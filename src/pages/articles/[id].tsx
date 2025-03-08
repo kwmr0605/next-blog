@@ -1,6 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
-import type { Article } from "@/types/article";
+import type { Article } from "@/types/Article";
 import { fetchArticles, fetchArticleById } from "@/libs/microcms_api";
 import { renderToc } from "@/libs/render_toc";
 import { TableOfContents } from "@/components/TableOfContent";
