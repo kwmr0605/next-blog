@@ -10,7 +10,7 @@ const Header = () => {
       </div>
       <div className="flex justify-end gap-8">
         <Link href="/">Home</Link>
-        <Link href="/">Articles</Link>
+        <Link href="/articles">Articles</Link>
         <Link href="/">About</Link>
       </div>
     </header>

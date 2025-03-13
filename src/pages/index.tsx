@@ -1,9 +1,7 @@
 import { useArticles } from "@/libs/microcms_api";
 import Link from "next/link";
-import type { Article } from "@/types/Article";
-import { formatDate } from "@/libs/fotmat_date";
 import TopPageLayout from "@/components/layouts/TopPageLayout";
-
+import ArticleItems from "@/components/ui/ArticleItems";
 export default function Home() {
   const { articles, error } = useArticles();
   if (error) return <p>エラーが発生しました</p>;
@@ -32,20 +30,13 @@ export default function Home() {
             </div>
             <div className="mb-10">
               <h2>最新記事</h2>
-              {articles.map((article: Article) => (
-                <div key={article.id} className="mb-6 p-4 bg-white rounded-lg">
-                  <Link
-                    href={`/articles/${article.id}`}
-                    onMouseEnter={() => setHoveredArticle(article)}
-                    onMouseLeave={() => setHoveredArticle(null)}
-                  >
-                    <p className="text-xl font-bold">{article.title}</p>
-                  </Link>
-                  <p className="text-gray-600">
-                    {formatDate(article.publishedAt)}
-                  </p>
-                </div>
-              ))}
+              <ArticleItems
+                articles={articles.slice(0, 10)}
+                setHoveredArticle={setHoveredArticle}
+              />
+              <div className="text-right">
+                <Link href="/articles">View More</Link>
+              </div>
             </div>
           </main>
         </div>

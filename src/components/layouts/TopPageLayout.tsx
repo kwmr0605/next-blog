@@ -58,7 +58,9 @@ const TopPageLayout = ({ children }: LayoutProps) => {
 
         {/* 右側 (記事一覧エリア) */}
         <div className="w-full md:w-1/2 ml-auto md:overflow-y-auto h-screen">
-          <div className="mx-4">{children({ setHoveredArticle })}</div>
+          <div className="mx-4 flex flex-col min-h-screen">
+            <div className="flex-grow">{children({ setHoveredArticle })}</div>
+          </div>
           <Footer />
         </div>
       </div>
