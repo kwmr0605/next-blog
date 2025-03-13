@@ -29,7 +29,11 @@ export default function Home() {
               </div>
             </div>
             <div className="mb-10">
-              <h2>最新記事</h2>
+              <div className="text-center mb-4">
+                <h2 className="inline-block text-center border-b-2 px-4 border-accentColor">
+                  最新記事
+                </h2>
+              </div>
               <ArticleItems
                 articles={articles.slice(0, 10)}
                 setHoveredArticle={setHoveredArticle}
