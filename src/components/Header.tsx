@@ -8,7 +8,7 @@ const Header = () => {
           <p className="font-bold">五月雨ラボ</p>
         </Link>
       </div>
-      <div className="flex justify-end gap-4">
+      <div className="flex justify-end gap-8">
         <Link href="/">Home</Link>
         <Link href="/">Articles</Link>
         <Link href="/">About</Link>

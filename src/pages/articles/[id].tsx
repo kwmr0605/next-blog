@@ -7,6 +7,7 @@ import { TableOfContents } from "@/components/TableOfContent";
 import { parse } from "node-html-parser";
 import { formatDate } from "@/libs/fotmat_date";
 import { TocItem } from "@/types/TocItem";
+import DefaultLayout from "@/components/layouts/DefaultLayout";
 
 // 見出しのid要素に見出しテキストを指定
 function addIdsToHeadings(html: string): string {
@@ -29,30 +30,34 @@ export default function ArticleDetail({
   if (router.isFallback) return <p>読み込み中...</p>;
 
   return (
-    <div className="max-w-[1200px] mx-auto mb-20">
-      <div className="my-10">
-        <h1 className="text-3xl font-bold text-center mb-6">{article.title}</h1>
-        <div className="text-center">
-          <p className="text-sm">{formatDate(article.publishedAt)}</p>
+    <DefaultLayout>
+      <div className="max-w-[1200px] mx-auto mb-20">
+        <div className="my-10">
+          <h1 className="text-3xl font-bold text-center mb-6">
+            {article.title}
+          </h1>
+          <div className="text-center">
+            <p className="text-sm">{formatDate(article.publishedAt)}</p>
+          </div>
+        </div>
+        <div className="flex">
+          <article className="flex-1 max-w-5xl p-6 bg-white rounded-sm">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: addIdsToHeadings(article.content),
+              }}
+              className="prose mt-4"
+            />
+          </article>
+          <aside
+            className="w-[300px] pl-4 hidden md:block"
+            style={{ position: "sticky", top: "1rem" }}
+          >
+            <TableOfContents toc={toc} />
+          </aside>
         </div>
       </div>
-      <div className="flex">
-        <article className="flex-1 max-w-5xl p-6 bg-white rounded-sm">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: addIdsToHeadings(article.content),
-            }}
-            className="prose mt-4"
-          />
-        </article>
-        <aside
-          className="w-[300px] pl-4 hidden md:block"
-          style={{ position: "sticky", top: "1rem" }}
-        >
-          <TableOfContents toc={toc} />
-        </aside>
-      </div>
-    </div>
+    </DefaultLayout>
   );
 }
 

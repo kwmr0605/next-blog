@@ -1,18 +1,19 @@
-import { AppProps } from 'next/app';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import '@/styles/globals.css';
+import { AppProps } from "next/app";
+import { ReactElement, ReactNode } from "react";
+import { NextPage } from "next";
+import "@/styles/globals.css";
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
-  return (
-    <div>
-      <Header />
-      <main>
-        <Component {...pageProps} />
-      </main>
-      <Footer />
-    </div>
-  );
+// NextPage に getLayout をオプションで追加
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
 };
 
-export default MyApp;
+// AppProps を拡張
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+  return getLayout(<Component {...pageProps} />);
+}
