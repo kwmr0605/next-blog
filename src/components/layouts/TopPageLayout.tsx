@@ -2,6 +2,7 @@ import { ReactNode, useState } from "react";
 import Footer from "../Footer";
 import type { Article } from "@/types/Article";
 import { formatDate } from "@/libs/fotmat_date";
+import { sanitizeContent } from "@/libs/sanitize_content";
 
 type LayoutProps = {
   children: (props: {
@@ -11,9 +12,6 @@ type LayoutProps = {
 
 const TopPageLayout = ({ children }: LayoutProps) => {
   const [hoveredArticle, setHoveredArticle] = useState<Article | null>(null);
-  const sanitizeContent = (content: string) => {
-    return content.replace(/<[^>]+>/g, "");
-  };
 
   return (
     <div>
@@ -25,7 +23,7 @@ const TopPageLayout = ({ children }: LayoutProps) => {
         >
           {hoveredArticle && (
             <div
-              className="mx-20 my-96 absolute inset-0 flex items-center justify-center bg-white/10 backdrop-blur-lg text-white p-6 rounded-lg"
+              className="mx-20 h-fit my-auto absolute inset-0 flex items-center justify-center bg-white/10 backdrop-blur-lg text-white px-6 py-14 rounded-lg"
               style={{
                 transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
                 opacity: hoveredArticle ? 1 : 0,
@@ -45,8 +43,8 @@ const TopPageLayout = ({ children }: LayoutProps) => {
                       const cleanContent = sanitizeContent(
                         hoveredArticle.content
                       );
-                      return cleanContent.length > 300
-                        ? cleanContent.substring(0, 300) + "..."
+                      return cleanContent.length > 240
+                        ? cleanContent.substring(0, 240) + "..."
                         : cleanContent;
                     })()}
                   </p>
