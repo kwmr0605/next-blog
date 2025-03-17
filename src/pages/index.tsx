@@ -14,7 +14,8 @@ export default function Home() {
           <main>
             <div className="justify-between mb-10">
               <div className="text-center pt-10">
-                <h1>五月雨ラボ</h1>
+                {/* TODO: ロゴ用意できたら置換 */}
+                <h1 className="mb-5">五月雨ラボ</h1>
                 <p>プログラミングの情報を発信するサイトです。</p>
                 <p>
                   普段の業務で得た知識や、自分で学んだことを備忘録としてまとめます。
