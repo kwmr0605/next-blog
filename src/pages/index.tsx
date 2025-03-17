@@ -1,6 +1,6 @@
 import { useArticles } from "@/libs/microcms_api";
 import Link from "next/link";
-import TopPageLayout from "@/components/layouts/TopPageLayout";
+import DefaultLayout from "@/components/layouts/DefaultLayout";
 import ArticleItems from "@/components/ui/ArticleItems";
 export default function Home() {
   const { articles, error } = useArticles();
@@ -8,7 +8,7 @@ export default function Home() {
   if (!articles) return <p>読み込み中...</p>;
 
   return (
-    <TopPageLayout>
+    <DefaultLayout>
       {({ setHoveredArticle }) => (
         <div className="max-w-[1200px] mx-auto">
           <main>
@@ -45,6 +45,6 @@ export default function Home() {
           </main>
         </div>
       )}
-    </TopPageLayout>
+    </DefaultLayout>
   );
 }

@@ -25,31 +25,35 @@ export default function ArticleList() {
 
   return (
     <DefaultLayout>
-      <div className="max-w-[1200px] mx-auto mb-20 px-4">
-        <h1 className="text-center text-2xl font-bold my-10">記事一覧</h1>
-        <div className="space-y-6">
-          <ArticleItems
-            articles={currentArticles}
-            setHoveredArticle={() => {}}
-          />
-        </div>
+      {({ setHoveredArticle }) => (
+        <div className="max-w-[1200px] mx-auto mb-20 px-4">
+          <h1 className="text-center text-2xl font-bold my-10">記事一覧</h1>
+          <div className="space-y-6">
+            <ArticleItems
+              articles={currentArticles}
+              setHoveredArticle={setHoveredArticle}
+            />
+          </div>
 
-        <div className="flex justify-center mt-10 gap-2">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((number) => (
-            <button
-              key={number}
-              onClick={() => handlePageChange(number)}
-              className={`px-4 py-2 rounded-sm ${
-                currentPage === number
-                  ? "bg-gray-800 text-white"
-                  : "bg-white hover:bg-gray-100"
-              }`}
-            >
-              {number}
-            </button>
-          ))}
+          <div className="flex justify-center mt-10 gap-2">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+              (number) => (
+                <button
+                  key={number}
+                  onClick={() => handlePageChange(number)}
+                  className={`px-4 py-2 rounded-sm ${
+                    currentPage === number
+                      ? "bg-gray-800 text-white"
+                      : "bg-white hover:bg-gray-100"
+                  }`}
+                >
+                  {number}
+                </button>
+              )
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </DefaultLayout>
   );
 }
