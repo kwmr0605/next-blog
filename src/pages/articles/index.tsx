@@ -1,22 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useArticles } from "@/libs/microcms_api";
 import DefaultLayout from "@/components/layouts/DefaultLayout";
 import ArticleItems from "@/components/ui/ArticleItems";
+import { Article } from "@/types/Article";
+import { useRouter } from "next/router";
+
 export default function ArticleList() {
+  const router = useRouter();
+  const { keyword } = router.query;
   const { articles, error } = useArticles();
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
   const articlesPerPage = 5;
+
+  useEffect(() => {
+    if (keyword) {
+      setSearchQuery(keyword as string);
+    }
+  }, [keyword]);
 
   if (error) return <p>エラーが発生しました</p>;
   if (!articles) return <p>読み込み中...</p>;
 
+  const handleSearch = () => {
+    router.push({
+      pathname: "/articles",
+      query: { keyword: searchQuery },
+    });
+  };
+
+  const filteredArticles = keyword
+    ? articles.filter((article: Article) =>
+        article.title.toLowerCase().includes((keyword as string).toLowerCase())
+      )
+    : articles;
+
   const indexOfLastArticle = currentPage * articlesPerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-  const currentArticles = articles.slice(
+  const currentArticles = filteredArticles.slice(
     indexOfFirstArticle,
     indexOfLastArticle
   );
-  const totalPages = Math.ceil(articles.length / articlesPerPage);
+  const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -28,6 +53,25 @@ export default function ArticleList() {
       {({ setHoveredArticle }) => (
         <div className="max-w-[1200px] mx-auto mb-20 px-4">
           <h1 className="text-center text-2xl font-bold my-10">記事一覧</h1>
+
+          <div className="flex justify-center mb-8">
+            <div className="flex">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="キーワード"
+                className="px-4 py-2 border border-r-0 border-accentColor rounded-l-sm focus:outline-none"
+              />
+              <button
+                onClick={handleSearch}
+                className="px-4 py-2 text-white rounded-r-sm bg-accentColor w-20 border border-accentColor"
+              >
+                検索
+              </button>
+            </div>
+          </div>
+
           <div className="space-y-6">
             <ArticleItems
               articles={currentArticles}
@@ -43,8 +87,8 @@ export default function ArticleList() {
                   onClick={() => handlePageChange(number)}
                   className={`px-4 py-2 rounded-sm ${
                     currentPage === number
-                      ? "bg-gray-800 text-white"
-                      : "bg-white hover:bg-gray-100"
+                      ? "bg-accentColor text-white"
+                      : "bg-white text-accentColor"
                   }`}
                 >
                   {number}
