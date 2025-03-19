@@ -54,7 +54,7 @@ export default function ArticleList() {
         <div className="max-w-[1200px] mx-auto mb-20 px-4">
           <h1 className="text-center text-2xl font-bold my-10">記事一覧</h1>
 
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-end mb-8">
             <div className="flex">
               <input
                 type="text"
