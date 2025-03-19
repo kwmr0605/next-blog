@@ -64,7 +64,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
                 : "translate-x-full md:-translate-x-full"
             }`}
           >
-            <div className="pt-16 px-4">
+            <div className="pt-20 px-4">
               <nav>
                 <ul className="space-y-4">
                   <li>
@@ -72,7 +72,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
                       href="/"
                       className="block py-2 hover:text-accentColor"
                     >
-                      ホーム
+                      Home
                     </Link>
                   </li>
                   <li>
@@ -80,7 +80,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
                       href="/articles"
                       className="block py-2 hover:text-accentColor"
                     >
-                      記事一覧
+                      Articles
                     </Link>
                   </li>
                   <li>
@@ -88,7 +88,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
                       href="/about"
                       className="block py-2 hover:text-accentColor"
                     >
-                      About
+                      About Me
                     </Link>
                   </li>
                 </ul>
