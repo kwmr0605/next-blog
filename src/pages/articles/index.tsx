@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useArticles } from '@/libs/microcms_api';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import ArticleItems from '@/components/ui/ArticleItems';
-import { Article } from '../../types/Article';
+import { Article } from '../../type/Article';
 import { useRouter } from 'next/router';
 
 export default function ArticleList() {

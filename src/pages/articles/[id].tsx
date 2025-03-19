@@ -1,12 +1,12 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
-import type { Article } from '../../types/Article';
+import type { Article } from '../../type/Article';
 import { fetchArticles, fetchArticleById } from '@/libs/microcms_api';
 import { renderToc } from '@/libs/render_toc';
 import { TableOfContents } from '@/components/TableOfContent';
 import { parse } from 'node-html-parser';
 import { formatDate } from '@/libs/fotmat_date';
-import { TocItem } from '../../types/TocItem';
+import { TocItem } from '../../type/TocItem';
 import DefaultLayout from '@/components/layouts/ArticleLayout';
 
 // 見出しのid要素に見出しテキストを指定

@@ -1,4 +1,4 @@
-import { TocItem } from '../types/TocItem';
+import { TocItem } from '../type/TocItem';
 import { useState, useEffect } from 'react';
 export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
   const [activeId, setActiveId] = useState<string | null>(null);
