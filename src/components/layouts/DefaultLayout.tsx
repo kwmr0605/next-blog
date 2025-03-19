@@ -4,6 +4,7 @@ import type { Article } from "@/types/Article";
 import { formatDate } from "@/libs/fotmat_date";
 import { sanitizeContent } from "@/libs/sanitize_content";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type DefaultLayoutProps = {
   children:
@@ -16,6 +17,7 @@ type DefaultLayoutProps = {
 const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   const [hoveredArticle, setHoveredArticle] = useState<Article | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   const getBgPositionClass = (pathname: string) => {
     switch (pathname) {
@@ -33,7 +35,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
       <div className="md:flex md:h-screen">
         {/* 左側エリア (背景画像) */}
         <div
-          className={`w-full h-[calc(100vh-100px)] md:w-1/2 md:h-screen bg-cover ${getBgPositionClass(location.pathname)} md:fixed md:left-0 md:top-0 relative`}
+          className={`w-full h-[calc(100vh-100px)] md:w-1/2 md:h-screen bg-cover ${getBgPositionClass(router.pathname)} md:fixed md:left-0 md:top-0 relative`}
           style={{ backgroundImage: "url('/images/top_bg.jpg')" }}
         >
           {/* ハンバーガーメニューボタン */}
