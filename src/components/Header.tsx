@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { useState } from "react";
+import Link from 'next/link';
+import { useState } from 'react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,22 +33,22 @@ const Header = () => {
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         style={{
           clipPath:
-            "polygon(50% 0%, 90% 20%, 100% 60%, 90% 80%, 50% 100%, 10% 80%, 0% 60%, 10% 20%)",
+            'polygon(50% 0%, 90% 20%, 100% 60%, 90% 80%, 50% 100%, 10% 80%, 0% 60%, 10% 20%)',
         }}
       >
         <div
           className={`w-5 h-0.5 bg-white mb-1.5 transition-all ${
-            isMenuOpen ? "rotate-45 translate-y-2" : ""
+            isMenuOpen ? 'rotate-45 translate-y-2' : ''
           }`}
         ></div>
         <div
           className={`w-5 h-0.5 bg-white mb-1.5 transition-all ${
-            isMenuOpen ? "opacity-0" : ""
+            isMenuOpen ? 'opacity-0' : ''
           }`}
         ></div>
         <div
           className={`w-5 h-0.5 bg-white transition-all ${
-            isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+            isMenuOpen ? '-rotate-45 -translate-y-2' : ''
           }`}
         ></div>
       </button>
@@ -56,7 +56,7 @@ const Header = () => {
       {/* スライドメニュー */}
       <div
         className={`fixed top-0 right-0 h-screen w-64 bg-gray-800 text-white transform transition-transform duration-300 ease-in-out z-40 ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="pt-16 px-4">

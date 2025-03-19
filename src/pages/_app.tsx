@@ -1,7 +1,7 @@
-import { AppProps } from "next/app";
-import { ReactElement, ReactNode } from "react";
-import { NextPage } from "next";
-import "@/styles/globals.css";
+import { AppProps } from 'next/app';
+import { ReactElement, ReactNode } from 'react';
+import { NextPage } from 'next';
+import '@/styles/globals.css';
 
 // NextPage に getLayout をオプションで追加
 type NextPageWithLayout = NextPage & {

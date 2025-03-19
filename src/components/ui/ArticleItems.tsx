@@ -1,5 +1,5 @@
-import { Article } from "@/types/Article";
-import ArticleItem from "./ArticleItem";
+import { Article } from '@/types/Article';
+import ArticleItem from './ArticleItem';
 
 type ArticleItemsProps = {
   articles: Article[];

@@ -1,20 +1,20 @@
-import { GetStaticProps, GetStaticPaths } from "next";
-import { useRouter } from "next/router";
-import type { Article } from "@/types/Article";
-import { fetchArticles, fetchArticleById } from "@/libs/microcms_api";
-import { renderToc } from "@/libs/render_toc";
-import { TableOfContents } from "@/components/TableOfContent";
-import { parse } from "node-html-parser";
-import { formatDate } from "@/libs/fotmat_date";
-import { TocItem } from "@/types/TocItem";
-import DefaultLayout from "@/components/layouts/ArticleLayout";
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { useRouter } from 'next/router';
+import type { Article } from '@/types/Article';
+import { fetchArticles, fetchArticleById } from '@/libs/microcms_api';
+import { renderToc } from '@/libs/render_toc';
+import { TableOfContents } from '@/components/TableOfContent';
+import { parse } from 'node-html-parser';
+import { formatDate } from '@/libs/fotmat_date';
+import { TocItem } from '@/types/TocItem';
+import DefaultLayout from '@/components/layouts/ArticleLayout';
 
 // 見出しのid要素に見出しテキストを指定
 function addIdsToHeadings(html: string): string {
   const root = parse(html);
-  root.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((heading) => {
+  root.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading) => {
     const text = heading.text.trim();
-    heading.setAttribute("id", text);
+    heading.setAttribute('id', text);
   });
   return root.toString();
 }
@@ -51,7 +51,7 @@ export default function ArticleDetail({
           </article>
           <aside
             className="w-[300px] pl-4 hidden md:block"
-            style={{ position: "sticky", top: "1rem" }}
+            style={{ position: 'sticky', top: '1rem' }}
           >
             <TableOfContents toc={toc} />
           </aside>

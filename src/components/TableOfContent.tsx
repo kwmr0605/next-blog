@@ -1,5 +1,5 @@
-import { TocItem } from "@/types/TocItem";
-import { useState, useEffect } from "react";
+import { TocItem } from '@/types/TocItem';
+import { useState, useEffect } from 'react';
 export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
   const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -13,7 +13,7 @@ export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
     };
 
     const observer = new IntersectionObserver(handleObserver, {
-      rootMargin: "0px 0px -80% 0px", // 見出しが80%表示されたらアクティブに
+      rootMargin: '0px 0px -80% 0px', // 見出しが80%表示されたらアクティブに
     });
 
     toc.forEach((item) => {
@@ -41,8 +41,8 @@ export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
           <li
             key={data.id}
             className={`py-1 hover:opacity-70 cursor-pointer text-[12px] ${
-              activeId === data.text ? "bg-gray-200" : ""
-            } ${data.name === "h3" ? "pl-4" : ""}`}
+              activeId === data.text ? 'bg-gray-200' : ''
+            } ${data.name === 'h3' ? 'pl-4' : ''}`}
           >
             <a href={`#${data.text}`}>{data.text}</a>
           </li>

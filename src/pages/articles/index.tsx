@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import { useArticles } from "@/libs/microcms_api";
-import DefaultLayout from "@/components/layouts/DefaultLayout";
-import ArticleItems from "@/components/ui/ArticleItems";
-import { Article } from "@/types/Article";
-import { useRouter } from "next/router";
+import { useState, useEffect } from 'react';
+import { useArticles } from '@/libs/microcms_api';
+import DefaultLayout from '@/components/layouts/DefaultLayout';
+import ArticleItems from '@/components/ui/ArticleItems';
+import { Article } from '@/types/Article';
+import { useRouter } from 'next/router';
 
 export default function ArticleList() {
   const router = useRouter();
   const { keyword } = router.query;
   const { articles, error } = useArticles();
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const articlesPerPage = 5;
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function ArticleList() {
 
   const handleSearch = () => {
     router.push({
-      pathname: "/articles",
+      pathname: '/articles',
       query: { keyword: searchQuery },
     });
   };
@@ -87,8 +87,8 @@ export default function ArticleList() {
                   onClick={() => handlePageChange(number)}
                   className={`px-4 py-2 rounded-sm ${
                     currentPage === number
-                      ? "bg-accentColor text-white"
-                      : "bg-white text-accentColor"
+                      ? 'bg-accentColor text-white'
+                      : 'bg-white text-accentColor'
                   }`}
                 >
                   {number}

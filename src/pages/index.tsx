@@ -1,7 +1,7 @@
-import { useArticles } from "@/libs/microcms_api";
-import Link from "next/link";
-import DefaultLayout from "@/components/layouts/DefaultLayout";
-import ArticleItems from "@/components/ui/ArticleItems";
+import { useArticles } from '@/libs/microcms_api';
+import Link from 'next/link';
+import DefaultLayout from '@/components/layouts/DefaultLayout';
+import ArticleItems from '@/components/ui/ArticleItems';
 export default function Home() {
   const { articles, error } = useArticles();
   if (error) return <p>エラーが発生しました</p>;

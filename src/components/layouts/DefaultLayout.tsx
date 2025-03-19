@@ -1,10 +1,10 @@
-import { ReactNode, useState } from "react";
-import Footer from "../Footer";
-import type { Article } from "@/types/Article";
-import { formatDate } from "@/libs/fotmat_date";
-import { sanitizeContent } from "@/libs/sanitize_content";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { ReactNode, useState } from 'react';
+import Footer from '../Footer';
+import type { Article } from '@/types/Article';
+import { formatDate } from '@/libs/fotmat_date';
+import { sanitizeContent } from '@/libs/sanitize_content';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 type DefaultLayoutProps = {
   children:
@@ -21,12 +21,12 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
 
   const getBgPositionClass = (pathname: string) => {
     switch (pathname) {
-      case "/":
-        return "bg-right";
-      case "/about":
-        return "bg-left";
+      case '/':
+        return 'bg-right';
+      case '/about':
+        return 'bg-left';
       default:
-        return "bg-center";
+        return 'bg-center';
     }
   };
 
@@ -44,17 +44,17 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             style={{
               clipPath:
-                "polygon(50% 0%, 90% 20%, 100% 60%, 90% 80%, 50% 100%, 10% 80%, 0% 60%, 10% 20%)",
+                'polygon(50% 0%, 90% 20%, 100% 60%, 90% 80%, 50% 100%, 10% 80%, 0% 60%, 10% 20%)',
             }}
           >
             <div
-              className={`w-5 h-0.5 bg-white mb-1.5 transition-all ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+              className={`w-5 h-0.5 bg-white mb-1.5 transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}
             ></div>
             <div
-              className={`w-5 h-0.5 bg-white mb-1.5 transition-all ${isMenuOpen ? "opacity-0" : ""}`}
+              className={`w-5 h-0.5 bg-white mb-1.5 transition-all ${isMenuOpen ? 'opacity-0' : ''}`}
             ></div>
             <div
-              className={`w-5 h-0.5 bg-white transition-all ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              className={`w-5 h-0.5 bg-white transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}
             ></div>
           </button>
 
@@ -62,8 +62,8 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
           <div
             className={`fixed top-0 right-0 md:left-0 h-screen w-64 bg-gray-800 text-white transform transition-transform duration-300 ease-in-out z-40 ${
               isMenuOpen
-                ? "translate-x-0"
-                : "translate-x-full md:-translate-x-full"
+                ? 'translate-x-0'
+                : 'translate-x-full md:-translate-x-full'
             }`}
           >
             <div className="pt-20 px-4">
@@ -110,9 +110,9 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
             <div
               className="hidden md:flex mx-20 h-fit my-auto absolute inset-0 items-center justify-center bg-white/10 backdrop-blur-lg text-white px-6 py-14 rounded-lg"
               style={{
-                transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
+                transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
                 opacity: hoveredArticle ? 1 : 0,
-                transform: hoveredArticle ? "scale(1)" : "scale(0.9)",
+                transform: hoveredArticle ? 'scale(1)' : 'scale(0.9)',
               }}
             >
               <div className="text-center text-white px-4">
@@ -129,7 +129,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
                         hoveredArticle.content
                       );
                       return cleanContent.length > 240
-                        ? cleanContent.substring(0, 240) + "..."
+                        ? cleanContent.substring(0, 240) + '...'
                         : cleanContent;
                     })()}
                   </p>
@@ -143,7 +143,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         <div className="w-full md:w-1/2 ml-auto md:overflow-y-auto h-screen">
           <div className="mx-4 flex flex-col min-h-screen">
             <div className="flex-grow">
-              {typeof children === "function"
+              {typeof children === 'function'
                 ? children({ setHoveredArticle })
                 : children}
             </div>

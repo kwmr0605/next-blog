@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Article } from "@/types/Article";
-import { formatDate } from "@/libs/fotmat_date";
+import Link from 'next/link';
+import { Article } from '@/types/Article';
+import { formatDate } from '@/libs/fotmat_date';
 
 type ArticleItemProps = {
   article: Article;
