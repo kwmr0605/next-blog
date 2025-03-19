@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react';
 import Footer from '../Footer';
-import type { Article } from '@/types/Article';
+import type { Article } from '../../types/Article';
 import { formatDate } from '@/libs/fotmat_date';
 import { sanitizeContent } from '@/libs/sanitize_content';
 import Link from 'next/link';
