@@ -12,7 +12,7 @@ type DefaultLayoutProps = {
 };
 
 const DefaultLayout = ({ children }: DefaultLayoutProps) => {
-  const setHoveredArticle = (article: Article | null) => {
+  const setHoveredArticle = () => {
     // 新しいデザインではホバー機能は使わないので、空の実装
   };
 

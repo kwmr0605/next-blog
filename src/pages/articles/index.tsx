@@ -55,7 +55,9 @@ export default function ArticleList() {
           {/* タイトル */}
           <div className="glass-card rounded-2xl p-6 mb-8 shadow-glass relative overflow-hidden">
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-accentColor/10 rounded-full blur-3xl"></div>
-            <h1 className="text-center text-2xl font-bold text-subColor drop-shadow-lg relative">記事一覧</h1>
+            <h1 className="text-center text-2xl font-bold text-subColor drop-shadow-lg relative">
+              記事一覧
+            </h1>
           </div>
 
           {/* 検索バー */}

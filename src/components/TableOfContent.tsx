@@ -37,8 +37,18 @@ export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
     <div className="glass-card rounded-xl p-6 sticky top-20 shadow-glass relative overflow-hidden">
       <div className="absolute top-0 right-0 w-32 h-32 bg-accentColor/5 rounded-full blur-2xl"></div>
       <p className="font-bold text-lg mb-4 text-subColor drop-shadow-md relative flex items-center gap-2">
-        <svg className="w-5 h-5 text-accentColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
+        <svg
+          className="w-5 h-5 text-accentColor"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6h16M4 12h16M4 18h7"
+          />
         </svg>
         目次
       </p>
@@ -47,8 +57,8 @@ export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
           <li
             key={data.id}
             className={`py-2 px-3 rounded-lg cursor-pointer text-sm transition-all ${
-              activeId === data.text 
-                ? 'bg-glassHover border border-accentColor/40 text-accentColor shadow-neon' 
+              activeId === data.text
+                ? 'bg-glassHover border border-accentColor/40 text-accentColor shadow-neon'
                 : 'text-fontColor hover:bg-glassHover hover:text-accentColor'
             } ${data.name === 'h3' ? 'pl-6 text-xs' : ''}`}
           >

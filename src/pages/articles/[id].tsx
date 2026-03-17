@@ -39,7 +39,9 @@ export default function ArticleDetail({
             {article.title}
           </h1>
           <div className="text-center relative">
-            <p className="text-sm text-fontSecondary">{formatDate(article.publishedAt)}</p>
+            <p className="text-sm text-fontSecondary">
+              {formatDate(article.publishedAt)}
+            </p>
           </div>
           {article.category && (
             <div className="flex justify-center gap-2 mt-4 relative">
