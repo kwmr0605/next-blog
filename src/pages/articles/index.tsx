@@ -133,13 +133,11 @@ export default function ArticleList() {
                     )
                   )
                     .map((c) => JSON.parse(c))
-                    .map(
-                      (cat: { id: string; name: string }) => (
-                        <option key={cat.id} value={cat.id}>
-                          {cat.name}
-                        </option>
-                      )
-                    )}
+                    .map((cat: { id: string; name: string }) => (
+                      <option key={cat.id} value={cat.id}>
+                        {cat.name}
+                      </option>
+                    ))}
                 </select>
               </div>
 
