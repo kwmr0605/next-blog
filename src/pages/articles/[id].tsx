@@ -34,8 +34,14 @@ export default function ArticleDetail({
     <DefaultLayout>
       <div className="article-container max-w-[1200px] mx-auto px-6 py-12 mb-20">
         {/* タイトルセクション */}
-        <div className="glass-card rounded-2xl p-6 md:p-10 mb-10 relative overflow-hidden shadow-glass">
-          <div className="absolute -top-20 -right-20 w-40 h-40 bg-accentColor/10 rounded-full blur-3xl"></div>
+        <div
+          className="glass-card rounded-2xl p-6 md:p-10 mb-10 relative shadow-glass"
+          style={{ overflow: 'visible' }}
+        >
+          <div
+            className="absolute -top-20 -right-20 w-40 h-40 bg-accentColor/5 rounded-full blur-3xl pointer-events-none"
+            style={{ zIndex: -1 }}
+          ></div>
           <h1 className="text-xl md:text-3xl font-bold text-center mb-6 text-subColor drop-shadow-lg relative break-words leading-relaxed tracking-wide">
             {article.title}
           </h1>
@@ -53,10 +59,10 @@ export default function ArticleDetail({
           )}
         </div>
 
-        <div className="flex gap-6">
+        <div className="flex gap-6 items-start">
           {/* 記事コンテンツ */}
-          <article className="flex-1 max-w-5xl glass-card rounded-2xl p-6 md:p-12 shadow-glass relative overflow-hidden">
-            <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-accentColor/5 rounded-full blur-3xl"></div>
+          <article className="flex-1 max-w-5xl glass-card rounded-2xl p-6 md:p-12 shadow-glass relative">
+            <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-accentColor/5 rounded-full blur-3xl pointer-events-none"></div>
             <div
               dangerouslySetInnerHTML={{
                 __html: addIdsToHeadings(article.content),
@@ -78,11 +84,13 @@ export default function ArticleDetail({
           </article>
 
           {/* サイドバー（目次） */}
-          <aside
-            className="w-[300px] hidden lg:block sticky top-24 self-start"
-            style={{ maxHeight: 'calc(100vh - 7rem)' }}
-          >
-            <TableOfContents toc={toc} />
+          <aside className="w-[300px] hidden lg:block">
+            <div
+              className="sticky top-24"
+              style={{ maxHeight: 'calc(100vh - 7rem)' }}
+            >
+              <TableOfContents toc={toc} />
+            </div>
           </aside>
         </div>
       </div>
