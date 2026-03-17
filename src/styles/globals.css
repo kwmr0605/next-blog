@@ -39,11 +39,11 @@ pre {
   box-shadow:
     0 4px 16px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(82, 190, 198, 0.1) !important;
-  padding: 1rem 1.25rem !important;
+  padding: 1.5rem !important;
   border-radius: 0.75rem !important;
   position: relative;
   backdrop-filter: blur(10px);
-  margin: 1.5rem 0 !important;
+  margin: 2rem 0 !important;
 }
 
 .prose pre code {
@@ -52,8 +52,9 @@ pre {
   padding: 0 !important;
   color: #e1edf6 !important;
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
-  font-size: 0.875rem !important;
-  line-height: 1.7 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.8 !important;
+  letter-spacing: 0.02em !important;
   display: block;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
@@ -68,6 +69,28 @@ pre {
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
   font-size: 0.875em !important;
   font-weight: 500;
+}
+
+/* リストのスタイル */
+.prose ul,
+.prose ol {
+  margin: 1.5rem 0 !important;
+  padding-left: 1.5rem !important;
+}
+
+.prose li {
+  line-height: 2 !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.prose ul li::marker {
+  color: #52bec6;
+}
+
+.prose ol li::marker {
+  color: #52bec6;
+  font-weight: bold;
 }
 
 /* コードブロックのホバー効果 */
@@ -187,22 +210,28 @@ h2 {
   @apply text-subColor;
   font-size: 1.5rem;
   font-weight: bold;
-  padding: 4px 0;
-  margin: 12px 0;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  padding: 8px 0;
+  margin: 2.5rem 0 1.5rem 0;
 }
 
 h3 {
   @apply text-subColor;
   font-size: 1.2rem;
   font-weight: bold;
-  padding-bottom: 4px;
-  margin-bottom: 8px;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  padding-bottom: 8px;
+  margin: 2rem 0 1rem 0;
 }
 
 p {
   @apply text-fontColor;
   font-size: 1rem;
-  margin-bottom: 8px;
+  line-height: 2;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
 }
 
 /* ガラスモーフィズム共通クラス */
