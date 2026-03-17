@@ -43,33 +43,14 @@ const Header = () => {
             href="/articles"
             className="text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]"
           >
-            FRONT-END
-          </Link>
-          <Link
-            href="/articles"
-            className="text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]"
-          >
-            BACK-END
-          </Link>
-          <Link
-            href="/articles"
-            className="text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]"
-          >
-            CLOUD
+            Articles
           </Link>
           <Link
             href="/about"
             className="text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]"
           >
-            ABOUT
+            About
           </Link>
-          <div className="ml-4">
-            <input
-              type="text"
-              placeholder="Search for tech articles..."
-              className="bg-glassBg backdrop-blur-glass border border-subColor/30 rounded-lg px-4 py-2 text-fontColor placeholder-fontSecondary focus:outline-none focus:border-accentColor focus:shadow-neon transition w-64"
-            />
-          </div>
         </nav>
 
         {/* ハンバーガーメニューボタン */}

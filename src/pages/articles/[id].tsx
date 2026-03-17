@@ -35,7 +35,7 @@ export default function ArticleDetail({
         {/* タイトルセクション */}
         <div className="glass-card rounded-2xl p-4 md:p-8 mb-8 relative overflow-hidden shadow-glass">
           <div className="absolute -top-20 -right-20 w-40 h-40 bg-accentColor/10 rounded-full blur-3xl"></div>
-          <h1 className="text-xl md:text-3xl font-bold text-center mb-4 text-subColor drop-shadow-lg relative break-words">
+          <h1 className="text-lg md:text-2xl font-bold text-center mb-4 text-subColor drop-shadow-lg relative break-words">
             {article.title}
           </h1>
           <div className="text-center relative">
@@ -60,20 +60,20 @@ export default function ArticleDetail({
               dangerouslySetInnerHTML={{
                 __html: addIdsToHeadings(article.content),
               }}
-              className="prose prose-invert prose-sm md:prose-base max-w-none relative break-words
+              className="prose prose-invert max-w-none relative break-words text-sm md:text-base
                 prose-headings:text-subColor prose-headings:drop-shadow-md prose-headings:break-words
-                prose-h1:text-xl md:prose-h1:text-3xl prose-h1:font-bold prose-h1:mb-4 md:prose-h1:mb-6
-                prose-h2:text-lg md:prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-3 md:prose-h2:mb-4 prose-h2:mt-6 md:prose-h2:mt-8
-                prose-h3:text-base md:prose-h3:text-xl prose-h3:font-bold prose-h3:mb-2 md:prose-h3:mb-3 prose-h3:mt-4 md:prose-h3:mt-6
-                prose-p:text-fontColor prose-p:leading-relaxed prose-p:mb-3 md:prose-p:mb-4 prose-p:break-words
-                prose-a:text-accentColor prose-a:no-underline hover:prose-a:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)] prose-a:break-all
+                prose-h1:text-lg md:prose-h1:text-2xl prose-h1:font-bold prose-h1:mb-3 md:prose-h1:mb-5
+                prose-h2:text-base md:prose-h2:text-xl prose-h2:font-bold prose-h2:mb-2.5 md:prose-h2:mb-3 prose-h2:mt-5 md:prose-h2:mt-7
+                prose-h3:text-sm md:prose-h3:text-lg prose-h3:font-bold prose-h3:mb-2 md:prose-h3:mb-2.5 prose-h3:mt-4 md:prose-h3:mt-5
+                prose-p:text-fontColor prose-p:leading-relaxed prose-p:mb-2.5 md:prose-p:mb-3.5 prose-p:break-words prose-p:text-sm md:prose-p:text-base
+                prose-a:text-accentColor prose-a:no-underline hover:prose-a:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)] prose-a:break-all prose-a:text-sm md:prose-a:text-base
                 prose-strong:text-subColor prose-strong:font-bold
-                prose-code:text-accentColor prose-code:bg-glassBg prose-code:px-1.5 md:prose-code:px-2 prose-code:py-0.5 md:prose-code:py-1 prose-code:rounded prose-code:border prose-code:border-subColor/20 prose-code:break-all prose-code:text-xs md:prose-code:text-sm
-                prose-pre:bg-glassBg prose-pre:backdrop-blur-glass prose-pre:border prose-pre:border-subColor/20 prose-pre:shadow-glass prose-pre:overflow-x-auto
-                prose-ul:text-fontColor prose-ul:list-disc prose-ul:ml-4 md:prose-ul:ml-6
-                prose-ol:text-fontColor prose-ol:list-decimal prose-ol:ml-4 md:prose-ol:ml-6
-                prose-li:text-fontColor prose-li:mb-1 md:prose-li:mb-2
-                prose-blockquote:border-l-4 prose-blockquote:border-accentColor prose-blockquote:pl-3 md:prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-fontSecondary
+                prose-code:text-accentColor prose-code:bg-glassBg prose-code:px-1 md:prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:border prose-code:border-subColor/20 prose-code:break-all prose-code:text-xs
+                prose-pre:bg-glassBg prose-pre:backdrop-blur-glass prose-pre:border prose-pre:border-subColor/20 prose-pre:shadow-glass prose-pre:overflow-x-auto prose-pre:text-xs md:prose-pre:text-sm
+                prose-ul:text-fontColor prose-ul:list-disc prose-ul:ml-3 md:prose-ul:ml-5 prose-ul:text-sm md:prose-ul:text-base
+                prose-ol:text-fontColor prose-ol:list-decimal prose-ol:ml-3 md:prose-ol:ml-5 prose-ol:text-sm md:prose-ol:text-base
+                prose-li:text-fontColor prose-li:mb-1 md:prose-li:mb-1.5 prose-li:text-sm md:prose-li:text-base
+                prose-blockquote:border-l-4 prose-blockquote:border-accentColor prose-blockquote:pl-2.5 md:prose-blockquote:pl-3.5 prose-blockquote:italic prose-blockquote:text-fontSecondary prose-blockquote:text-sm md:prose-blockquote:text-base
                 prose-img:rounded-xl prose-img:shadow-glass prose-img:border prose-img:border-subColor/20 prose-img:max-w-full"
             />
           </article>
