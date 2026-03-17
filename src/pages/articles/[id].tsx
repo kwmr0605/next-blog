@@ -34,7 +34,7 @@ export default function ArticleDetail({
     <DefaultLayout>
       <div className="w-full max-w-[1200px] mx-auto px-6 py-12 mb-20">
         {/* タイトルセクション */}
-        <div className="glass-card rounded-2xl p-6 md:p-10 mb-10 relative shadow-glass">
+        <div className="glass-card rounded-2xl p-6 md:p-10 mb-10 relative shadow-glass overflow-x-hidden">
           <div
             className="absolute -top-20 -right-20 w-40 h-40 bg-accentColor/5 rounded-full blur-3xl pointer-events-none"
             style={{ zIndex: -1 }}
@@ -56,9 +56,9 @@ export default function ArticleDetail({
           )}
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
+        <div className="flex flex-col lg:flex-row gap-6 items-start w-full">
           {/* 記事コンテンツ */}
-          <article className="flex-1 glass-card rounded-2xl p-6 md:p-12 shadow-glass relative min-w-0">
+          <article className="flex-1 w-full glass-card rounded-2xl p-6 md:p-12 shadow-glass relative min-w-0">
             <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-accentColor/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
             <div
               dangerouslySetInnerHTML={{
