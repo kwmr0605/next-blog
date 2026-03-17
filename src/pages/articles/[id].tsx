@@ -32,9 +32,9 @@ export default function ArticleDetail({
 
   return (
     <DefaultLayout>
-      <div className="max-w-[1200px] mx-auto px-6 py-12 mb-20 overflow-visible">
+      <div className="w-full max-w-[1200px] mx-auto px-6 py-12 mb-20">
         {/* タイトルセクション */}
-        <div className="glass-card rounded-2xl p-6 md:p-10 mb-10 relative shadow-glass overflow-visible">
+        <div className="glass-card rounded-2xl p-6 md:p-10 mb-10 relative shadow-glass">
           <div
             className="absolute -top-20 -right-20 w-40 h-40 bg-accentColor/5 rounded-full blur-3xl pointer-events-none"
             style={{ zIndex: -1 }}
@@ -58,7 +58,7 @@ export default function ArticleDetail({
 
         <div className="flex flex-col lg:flex-row gap-6 items-start">
           {/* 記事コンテンツ */}
-          <article className="flex-1 glass-card rounded-2xl p-6 md:p-12 shadow-glass relative overflow-visible min-w-0">
+          <article className="flex-1 glass-card rounded-2xl p-6 md:p-12 shadow-glass relative min-w-0">
             <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-accentColor/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
             <div
               dangerouslySetInnerHTML={{
@@ -81,10 +81,8 @@ export default function ArticleDetail({
           </article>
 
           {/* サイドバー（目次） */}
-          <aside className="hidden lg:block lg:w-[300px] flex-shrink-0">
-            <div className="sticky top-24">
-              <TableOfContents toc={toc} />
-            </div>
+          <aside className="hidden lg:block lg:w-[300px] flex-shrink-0 sticky top-24 self-start max-h-[calc(100vh-7rem)]">
+            <TableOfContents toc={toc} />
           </aside>
         </div>
       </div>

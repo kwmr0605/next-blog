@@ -13,7 +13,8 @@ export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
     };
 
     const observer = new IntersectionObserver(handleObserver, {
-      rootMargin: '0px 0px -80% 0px', // 見出しが80%表示されたらアクティブに
+      rootMargin: '-100px 0px -66% 0px', // ヘッダー分を考慮
+      threshold: 0.5,
     });
 
     toc.forEach((item) => {
