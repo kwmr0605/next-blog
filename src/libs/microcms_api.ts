@@ -79,3 +79,27 @@ export async function fetchTags() {
   );
   return res.json();
 }
+
+export const useCategories = () => {
+  const { data, error } = useSWR(
+    `https://${process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/categories`,
+    fetcher
+  );
+
+  return {
+    categories: data?.contents,
+    error,
+  };
+};
+
+export async function fetchCategories() {
+  const res = await fetch(
+    `https://${process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/categories`,
+    {
+      headers: {
+        'X-API-KEY': process.env.NEXT_PUBLIC_MICROCMS_API_KEY!,
+      },
+    }
+  );
+  return res.json();
+}
