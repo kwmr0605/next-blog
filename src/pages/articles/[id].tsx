@@ -81,10 +81,8 @@ export default function ArticleDetail({
           </article>
 
           {/* サイドバー（目次） */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-24">
-              <TableOfContents toc={toc} />
-            </div>
+          <aside className="hidden lg:block sticky top-24 self-start">
+            <TableOfContents toc={toc} />
           </aside>
         </div>
       </div>
