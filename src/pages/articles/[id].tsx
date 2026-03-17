@@ -56,9 +56,9 @@ export default function ArticleDetail({
           )}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6">
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
           {/* 記事コンテンツ */}
-          <article className="glass-card rounded-2xl p-6 md:p-12 shadow-glass relative overflow-visible min-w-0">
+          <article className="flex-1 glass-card rounded-2xl p-6 md:p-12 shadow-glass relative overflow-visible min-w-0">
             <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-accentColor/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
             <div
               dangerouslySetInnerHTML={{
@@ -81,8 +81,10 @@ export default function ArticleDetail({
           </article>
 
           {/* サイドバー（目次） */}
-          <aside className="hidden lg:block sticky top-24 self-start">
-            <TableOfContents toc={toc} />
+          <aside className="hidden lg:block lg:w-[300px] flex-shrink-0">
+            <div className="sticky top-24">
+              <TableOfContents toc={toc} />
+            </div>
           </aside>
         </div>
       </div>
