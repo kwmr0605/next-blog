@@ -3,11 +3,12 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import FeaturedArticle from '@/components/ui/FeaturedArticle';
 import CategoryCard from '@/components/ui/CategoryCard';
 import Sidebar from '@/components/ui/Sidebar';
+import Loading from '@/components/Loading';
 
 export default function Home() {
   const { articles, error } = useArticles();
   if (error) return <p>エラーが発生しました</p>;
-  if (!articles) return <p>読み込み中...</p>;
+  if (!articles) return <Loading />;
 
   // カテゴリー別に記事を分類（実際のデータに合わせて調整）
   const featuredArticle = articles[0];

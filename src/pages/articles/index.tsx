@@ -4,6 +4,7 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import ArticleItems from '@/components/ui/ArticleItems';
 import { Article } from '../../type/Article';
 import { useRouter } from 'next/router';
+import Loading from '@/components/Loading';
 
 export default function ArticleList() {
   const router = useRouter();
@@ -20,7 +21,7 @@ export default function ArticleList() {
   }, [keyword]);
 
   if (error) return <p>エラーが発生しました</p>;
-  if (!articles) return <p>読み込み中...</p>;
+  if (!articles) return <Loading />;
 
   const handleSearch = () => {
     router.push({

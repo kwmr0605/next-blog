@@ -8,6 +8,7 @@ import { parse } from 'node-html-parser';
 import { formatDate } from '@/libs/fotmat_date';
 import { TocItem } from '../../type/TocItem';
 import DefaultLayout from '@/components/layouts/ArticleLayout';
+import Loading from '@/components/Loading';
 
 // 見出しのid要素に見出しテキストを指定
 function addIdsToHeadings(html: string): string {
@@ -27,7 +28,7 @@ export default function ArticleDetail({
   toc: TocItem[];
 }) {
   const router = useRouter();
-  if (router.isFallback) return <p>読み込み中...</p>;
+  if (router.isFallback) return <Loading />;
 
   return (
     <DefaultLayout>
