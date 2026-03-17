@@ -32,6 +32,52 @@ pre {
   max-width: 100%;
 }
 
+/* コードブロックのスタイル強化 */
+.prose pre {
+  background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%) !important;
+  border: 1px solid rgba(82, 190, 198, 0.3) !important;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(82, 190, 198, 0.1) !important;
+  padding: 1rem 1.25rem !important;
+  border-radius: 0.75rem !important;
+  position: relative;
+  backdrop-filter: blur(10px);
+  margin: 1.5rem 0 !important;
+}
+
+.prose pre code {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: #e1edf6 !important;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+  font-size: 0.875rem !important;
+  line-height: 1.7 !important;
+  display: block;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* インラインコードとの区別 */
+.prose :not(pre) > code {
+  background: rgba(82, 190, 198, 0.15) !important;
+  color: #52bec6 !important;
+  padding: 0.2rem 0.4rem !important;
+  border-radius: 0.25rem !important;
+  border: 1px solid rgba(82, 190, 198, 0.3) !important;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+  font-size: 0.875em !important;
+  font-weight: 500;
+}
+
+/* コードブロックのホバー効果 */
+.prose pre:hover {
+  border-color: rgba(82, 190, 198, 0.5) !important;
+  box-shadow:
+    0 4px 20px rgba(82, 190, 198, 0.2),
+    inset 0 1px 0 rgba(82, 190, 198, 0.2) !important;
+}
+
 body {
   @apply bg-baseColor text-fontColor;
   font-family:

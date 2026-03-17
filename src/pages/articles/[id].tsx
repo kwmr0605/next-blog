@@ -68,8 +68,6 @@ export default function ArticleDetail({
                 prose-p:text-fontColor prose-p:leading-relaxed prose-p:mb-2.5 md:prose-p:mb-3.5 prose-p:break-words prose-p:text-sm md:prose-p:text-base
                 prose-a:text-accentColor prose-a:no-underline hover:prose-a:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)] prose-a:break-all prose-a:text-sm md:prose-a:text-base
                 prose-strong:text-subColor prose-strong:font-bold
-                prose-code:text-accentColor prose-code:bg-glassBg prose-code:px-1 md:prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:border prose-code:border-subColor/20 prose-code:break-all prose-code:text-xs
-                prose-pre:bg-glassBg prose-pre:backdrop-blur-glass prose-pre:border prose-pre:border-subColor/20 prose-pre:shadow-glass prose-pre:overflow-x-auto prose-pre:text-xs md:prose-pre:text-sm
                 prose-ul:text-fontColor prose-ul:list-disc prose-ul:ml-3 md:prose-ul:ml-5 prose-ul:text-sm md:prose-ul:text-base
                 prose-ol:text-fontColor prose-ol:list-decimal prose-ol:ml-3 md:prose-ol:ml-5 prose-ol:text-sm md:prose-ol:text-base
                 prose-li:text-fontColor prose-li:mb-1 md:prose-li:mb-1.5 prose-li:text-sm md:prose-li:text-base
