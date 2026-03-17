@@ -1,3 +1,6 @@
+import { Tag } from './Tag';
+import { Category } from './Category';
+
 export type Article = {
   id: string;
   createdAt: string;
@@ -6,8 +9,8 @@ export type Article = {
   revisedAt: string;
   title: string;
   content: string;
-  category?: string;
-  tags?: string[];
+  category?: Category;
+  tags?: Tag[];
   thumbnail?: {
     url: string;
   };

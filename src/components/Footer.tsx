@@ -147,23 +147,7 @@ const Footer = () => {
               Tag Cloud
             </h3>
             <div className="flex flex-wrap gap-2 mb-6 relative">
-              {[
-                '#React',
-                '#AWS',
-                '#NodeJS',
-                '#TypeScript',
-                '#Agile',
-                '#Scrum',
-                '#Docker',
-                '#Kubernetes',
-              ].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 bg-glassBg backdrop-blur-glass border border-subColor/30 rounded-full text-fontColor text-xs"
-                >
-                  {tag}
-                </span>
-              ))}
+              <p className="text-fontSecondary text-xs">タグを読み込み中...</p>
             </div>
             <h3 className="text-subColor font-bold mb-4 drop-shadow-md relative">
               Social Links

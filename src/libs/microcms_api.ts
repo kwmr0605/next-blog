@@ -55,3 +55,27 @@ export async function fetchArticleById(id: string) {
   );
   return res.json();
 }
+
+export const useTags = () => {
+  const { data, error } = useSWR(
+    `https://${process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/tags`,
+    fetcher
+  );
+
+  return {
+    tags: data?.contents,
+    error,
+  };
+};
+
+export async function fetchTags() {
+  const res = await fetch(
+    `https://${process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/tags`,
+    {
+      headers: {
+        'X-API-KEY': process.env.NEXT_PUBLIC_MICROCMS_API_KEY!,
+      },
+    }
+  );
+  return res.json();
+}

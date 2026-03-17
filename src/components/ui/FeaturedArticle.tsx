@@ -51,7 +51,7 @@ const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                 </span>
                 {article.category && (
                   <span className="px-3 py-1 bg-glassBg backdrop-blur-glass border border-subColor/30 rounded-full text-xs text-fontColor">
-                    {article.category}
+                    {article.category.name}
                   </span>
                 )}
               </div>

@@ -47,7 +47,7 @@ export default function ArticleDetail({
           {article.category && (
             <div className="flex justify-center gap-2 mt-4 relative">
               <span className="px-4 py-1.5 bg-glassBg backdrop-blur-glass border border-subColor/30 rounded-full text-xs text-fontColor">
-                {article.category}
+                {article.category.name}
               </span>
             </div>
           )}

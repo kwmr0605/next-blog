@@ -51,14 +51,14 @@ const ArticleItem = ({ article, setHoveredArticle }: ArticleItemProps) => {
 
               {article.category && (
                 <span className="px-3 py-1 bg-glassBg backdrop-blur-glass border border-subColor/30 rounded-full text-xs text-fontColor">
-                  {article.category}
+                  {article.category.name}
                 </span>
               )}
 
               {article.tags &&
                 article.tags.slice(0, 3).map((tag) => (
-                  <span key={tag} className="text-accentColor text-xs">
-                    #{tag}
+                  <span key={tag.id} className="text-accentColor text-xs">
+                    #{tag.name}
                   </span>
                 ))}
             </div>

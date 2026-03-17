@@ -1,4 +1,4 @@
-import { useArticles } from '@/libs/microcms_api';
+import { useArticles, useTags } from '@/libs/microcms_api';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import FeaturedArticle from '@/components/ui/FeaturedArticle';
 import CategoryCard from '@/components/ui/CategoryCard';
@@ -6,9 +6,11 @@ import Sidebar from '@/components/ui/Sidebar';
 import Loading from '@/components/Loading';
 
 export default function Home() {
-  const { articles, error } = useArticles();
-  if (error) return <p>エラーが発生しました</p>;
-  if (!articles) return <Loading />;
+  const { articles, error: articlesError } = useArticles();
+  const { tags, error: tagsError } = useTags();
+
+  if (articlesError || tagsError) return <p>エラーが発生しました</p>;
+  if (!articles || !tags) return <Loading />;
 
   // カテゴリー別に記事を分類（実際のデータに合わせて調整）
   const featuredArticle = articles[0];
@@ -17,19 +19,8 @@ export default function Home() {
   const scrumArticles = articles.slice(6, 9);
   const mobileArticles = articles.slice(9, 12);
 
-  // タグを抽出（実際のデータに合わせて調整）
-  const allTags = [
-    'React',
-    'AWS',
-    'NodeJS',
-    'TypeScript',
-    'Agile',
-    'Scrum',
-    'Docker',
-    'Kubernetes',
-    'Python',
-    'Go',
-  ];
+  // タグ名の配列を作成
+  const allTags = tags.map((tag: { name: string }) => tag.name);
 
   return (
     <DefaultLayout>
