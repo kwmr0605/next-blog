@@ -1,8 +1,19 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className="bg-glassBg backdrop-blur-glass-strong border-b border-subColor/20 sticky top-0 z-50 shadow-glass">
@@ -81,14 +92,14 @@ const Header = () => {
         {/* オーバーレイ */}
         {isMenuOpen && (
           <div
-            className="fixed inset-0 bg-baseColor/80 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-baseColor/80 backdrop-blur-sm z-40 max-w-full"
             onClick={() => setIsMenuOpen(false)}
           ></div>
         )}
 
         {/* スライドメニュー */}
         <div
-          className={`fixed top-0 right-0 h-screen w-64 bg-[rgba(115,139,147,0.95)] backdrop-blur-glass-strong border-l border-subColor/30 shadow-glass transform transition-transform duration-300 ease-in-out z-50 ${
+          className={`fixed top-0 right-0 h-screen w-64 max-w-[80vw] bg-[rgba(115,139,147,0.95)] backdrop-blur-glass-strong border-l border-subColor/30 shadow-glass transform transition-transform duration-300 ease-in-out z-50 ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
