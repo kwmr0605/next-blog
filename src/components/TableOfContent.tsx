@@ -52,7 +52,10 @@ export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
         </svg>
         目次
       </p>
-      <ul className="space-y-1 relative">
+      <ul
+        className="space-y-1 relative overflow-y-auto max-h-[calc(100vh-12rem)] pr-2"
+        style={{ scrollbarWidth: 'thin' }}
+      >
         {toc.map((data) => (
           <li
             key={data.id}

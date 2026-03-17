@@ -79,8 +79,8 @@ export default function ArticleDetail({
 
           {/* サイドバー（目次） */}
           <aside
-            className="w-[300px] hidden lg:block sticky top-20"
-            style={{ alignSelf: 'flex-start' }}
+            className="w-[300px] hidden lg:block sticky top-24 self-start"
+            style={{ maxHeight: 'calc(100vh - 7rem)' }}
           >
             <TableOfContents toc={toc} />
           </aside>

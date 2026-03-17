@@ -16,7 +16,7 @@ const Header = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="bg-glassBg backdrop-blur-glass-strong border-b border-subColor/20 sticky top-0 z-50 shadow-glass">
+    <header className="bg-glassBg backdrop-blur-glass-strong border-b border-subColor/20 fixed top-0 left-0 right-0 z-50 shadow-glass">
       <div className="max-w-[1400px] mx-auto px-6 py-4 flex justify-between items-center">
         {/* ロゴ */}
         <Link

@@ -6,7 +6,7 @@ const DefaultLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div>
       <Header />
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen pt-[72px]">
         <main className="flex-grow">{children}</main>
       </div>
       <Footer />

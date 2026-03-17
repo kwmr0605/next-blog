@@ -19,7 +19,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow pt-[72px]">
         {typeof children === 'function'
           ? children({ setHoveredArticle })
           : children}
