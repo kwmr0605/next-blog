@@ -69,9 +69,9 @@ export default function ArticleDetail({
                 prose-p:text-fontColor prose-p:leading-loose prose-p:mb-6 md:prose-p:mb-8 prose-p:break-words prose-p:text-base md:prose-p:text-lg prose-p:tracking-wide
                 prose-a:text-accentColor prose-a:no-underline hover:prose-a:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)] prose-a:break-all prose-a:text-base md:prose-a:text-lg
                 prose-strong:text-subColor prose-strong:font-bold
-                prose-ul:text-fontColor prose-ul:list-disc prose-ul:ml-5 md:prose-ul:ml-6 prose-ul:text-base md:prose-ul:text-lg prose-ul:my-6 prose-ul:leading-loose
-                prose-ol:text-fontColor prose-ol:list-decimal prose-ol:ml-5 md:prose-ol:ml-6 prose-ol:text-base md:prose-ol:text-lg prose-ol:my-6 prose-ol:leading-loose
-                prose-li:text-fontColor prose-li:mb-3 md:prose-li:mb-4 prose-li:text-base md:prose-li:text-lg prose-li:leading-loose
+                prose-ul:list-outside prose-ul:list-disc prose-ul:text-fontColor prose-ul:pl-8 prose-ul:text-base md:prose-ul:text-lg prose-ul:my-6 prose-ul:leading-loose
+                prose-ol:list-outside prose-ol:list-decimal prose-ol:text-fontColor prose-ol:pl-8 prose-ol:text-base md:prose-ol:text-lg prose-ol:my-6 prose-ol:leading-loose
+                prose-li:list-item prose-li:text-fontColor prose-li:mb-3 md:prose-li:mb-4 prose-li:text-base md:prose-li:text-lg prose-li:leading-loose
                 prose-blockquote:border-l-4 prose-blockquote:border-accentColor prose-blockquote:pl-4 md:prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-fontSecondary prose-blockquote:text-base md:prose-blockquote:text-lg prose-blockquote:my-6 prose-blockquote:leading-loose
                 prose-img:rounded-xl prose-img:shadow-glass prose-img:border prose-img:border-subColor/20 prose-img:max-w-full prose-img:my-8"
             />
@@ -79,8 +79,8 @@ export default function ArticleDetail({
 
           {/* サイドバー（目次） */}
           <aside
-            className="w-[300px] hidden lg:block"
-            style={{ position: 'sticky', top: '5rem', alignSelf: 'flex-start' }}
+            className="w-[300px] hidden lg:block sticky top-20"
+            style={{ alignSelf: 'flex-start' }}
           >
             <TableOfContents toc={toc} />
           </aside>

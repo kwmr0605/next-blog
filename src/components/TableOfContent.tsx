@@ -34,7 +34,7 @@ export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
   }, [toc]);
 
   return (
-    <div className="glass-card rounded-xl p-6 sticky top-20 shadow-glass relative overflow-hidden">
+    <div className="glass-card rounded-xl p-6 shadow-glass relative overflow-hidden">
       <div className="absolute top-0 right-0 w-32 h-32 bg-accentColor/5 rounded-full blur-2xl"></div>
       <p className="font-bold text-lg mb-4 text-subColor drop-shadow-md relative flex items-center gap-2">
         <svg

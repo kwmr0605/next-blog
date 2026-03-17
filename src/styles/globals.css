@@ -75,22 +75,42 @@ pre {
 .prose ul,
 .prose ol {
   margin: 1.5rem 0 !important;
-  padding-left: 1.5rem !important;
+  padding-left: 2rem !important;
+}
+
+.prose ul {
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+}
+
+.prose ol {
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
 }
 
 .prose li {
   line-height: 2 !important;
   letter-spacing: 0.05em !important;
   margin-bottom: 0.75rem !important;
+  display: list-item !important;
+}
+
+.prose ul > li {
+  list-style-type: disc !important;
+}
+
+.prose ol > li {
+  list-style-type: decimal !important;
 }
 
 .prose ul li::marker {
-  color: #52bec6;
+  color: #52bec6 !important;
+  font-size: 1.2em !important;
 }
 
 .prose ol li::marker {
-  color: #52bec6;
-  font-weight: bold;
+  color: #52bec6 !important;
+  font-weight: bold !important;
 }
 
 /* コードブロックのホバー効果 */
