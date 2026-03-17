@@ -63,8 +63,9 @@ const Header = () => {
 
         {/* ハンバーガーメニューボタン */}
         <button
-          className="md:hidden p-2 text-subColor"
+          className="md:hidden p-2 text-subColor relative z-[60]"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
         >
           <div
             className={`w-6 h-0.5 bg-subColor mb-1.5 transition-all shadow-[0_0_5px_rgba(82,190,198,0.5)] ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}
@@ -77,9 +78,17 @@ const Header = () => {
           ></div>
         </button>
 
+        {/* オーバーレイ */}
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 bg-baseColor/80 backdrop-blur-sm z-40"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+        )}
+
         {/* スライドメニュー */}
         <div
-          className={`fixed top-0 right-0 h-screen w-64 bg-glassBg backdrop-blur-glass-strong border-l border-subColor/30 shadow-glass transform transition-transform duration-300 ease-in-out z-40 ${
+          className={`fixed top-0 right-0 h-screen w-64 bg-[rgba(115,139,147,0.95)] backdrop-blur-glass-strong border-l border-subColor/30 shadow-glass transform transition-transform duration-300 ease-in-out z-50 ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
@@ -89,6 +98,7 @@ const Header = () => {
                 <li>
                   <Link
                     href="/"
+                    onClick={() => setIsMenuOpen(false)}
                     className="block py-2 text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]"
                   >
                     HOME
@@ -97,6 +107,7 @@ const Header = () => {
                 <li>
                   <Link
                     href="/articles"
+                    onClick={() => setIsMenuOpen(false)}
                     className="block py-2 text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]"
                   >
                     Articles
@@ -105,6 +116,7 @@ const Header = () => {
                 <li>
                   <Link
                     href="/about"
+                    onClick={() => setIsMenuOpen(false)}
                     className="block py-2 text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]"
                   >
                     About
@@ -114,14 +126,6 @@ const Header = () => {
             </nav>
           </div>
         </div>
-
-        {/* オーバーレイ */}
-        {isMenuOpen && (
-          <div
-            className="fixed inset-0 bg-baseColor/60 backdrop-blur-sm z-30"
-            onClick={() => setIsMenuOpen(false)}
-          ></div>
-        )}
       </div>
     </header>
   );
