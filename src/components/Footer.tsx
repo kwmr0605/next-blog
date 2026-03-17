@@ -125,8 +125,8 @@ const Footer = () => {
               Must-Read Classics
             </h3>
             <div className="space-y-4">
-              <div className="flex gap-3 group">
-                <div className="w-16 h-16 bg-gradient-to-br from-accentColor/30 to-accentColor/10 rounded backdrop-blur-sm border border-subColor/20 group-hover:shadow-neon transition-shadow"></div>
+              <div className="flex gap-3">
+                <div className="w-16 h-16 bg-gradient-to-br from-accentColor/30 to-accentColor/10 rounded backdrop-blur-sm border border-subColor/20"></div>
                 <div className="flex-1">
                   <Link
                     href="/articles/featured-1"
@@ -159,7 +159,7 @@ const Footer = () => {
               ].map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 bg-glassBg backdrop-blur-glass border border-subColor/30 rounded-full text-fontColor text-xs hover:bg-glassHover hover:border-accentColor/40 hover:shadow-neon transition cursor-pointer"
+                  className="px-3 py-1 bg-glassBg backdrop-blur-glass border border-subColor/30 rounded-full text-fontColor text-xs"
                 >
                   {tag}
                 </span>

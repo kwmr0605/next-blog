@@ -10,7 +10,7 @@ const Sidebar = ({ articles, tags }: SidebarProps) => {
   return (
     <aside className="space-y-6">
       {/* Front-end Hot Topics */}
-      <div className="glass-card rounded-xl p-6 transition-all duration-300 hover:shadow-glass-hover relative overflow-hidden">
+      <div className="glass-card rounded-xl p-6 relative overflow-hidden">
         {/* グロー効果 */}
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-accentColor/10 rounded-full blur-2xl"></div>
 
@@ -97,7 +97,7 @@ const Sidebar = ({ articles, tags }: SidebarProps) => {
       </div>
 
       {/* Tags */}
-      <div className="glass-card rounded-xl p-6 transition-all duration-300 hover:shadow-glass-hover relative overflow-hidden">
+      <div className="glass-card rounded-xl p-6 relative overflow-hidden">
         <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-accentColor/10 rounded-full blur-2xl"></div>
 
         <h3 className="text-subColor font-bold text-lg mb-4 drop-shadow-md relative">
@@ -134,7 +134,7 @@ const Sidebar = ({ articles, tags }: SidebarProps) => {
       </div>
 
       {/* Latest Update */}
-      <div className="glass-card rounded-xl p-6 transition-all duration-300 hover:shadow-glass-hover relative overflow-hidden">
+      <div className="glass-card rounded-xl p-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-accentColor/10 rounded-full blur-2xl"></div>
 
         <h3 className="text-subColor font-bold text-lg mb-4 drop-shadow-md relative">

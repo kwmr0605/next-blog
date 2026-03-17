@@ -89,7 +89,7 @@ export default function About() {
               ].map((tech) => (
                 <span
                   key={tech}
-                  className="px-4 py-2 glass-card rounded-full text-sm text-fontColor hover:text-accentColor hover:shadow-neon transition cursor-default"
+                  className="px-4 py-2 glass-card rounded-full text-sm text-fontColor"
                 >
                   {tech}
                 </span>
