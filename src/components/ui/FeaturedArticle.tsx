@@ -91,14 +91,6 @@ const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
             </div>
           </div>
         </div>
-
-        {/* 著者情報 */}
-        <div className="absolute bottom-8 left-8 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accentColor to-accentColor/60 flex items-center justify-center text-subColor font-bold shadow-neon">
-            五
-          </div>
-          <span className="text-fontColor text-sm drop-shadow-md">五月雨</span>
-        </div>
       </div>
     </Link>
   );
