@@ -5,96 +5,89 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="h-20 md:h-10 md:mx-auto md:max-w-[1200px] md:px-4 mx-4 md:leading-10 flex justify-between items-center relative">
-      <div className="flex-1">
-        <Link href="/">
-          <p className="font-bold">五月雨ラボ</p>
+    <header className="bg-glassBg backdrop-blur-glass-strong border-b border-subColor/20 sticky top-0 z-50 shadow-glass">
+      <div className="max-w-[1400px] mx-auto px-6 py-4 flex justify-between items-center">
+        {/* ロゴ */}
+        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition group">
+          <div className="w-10 h-10 bg-gradient-to-br from-accentColor to-accentColor/60 rounded-lg flex items-center justify-center shadow-neon group-hover:shadow-glass-hover transition-all">
+            <span className="text-subColor text-xl font-bold">五</span>
+          </div>
+          <span className="text-xl font-bold text-subColor drop-shadow-lg">五月雨ラボ</span>
         </Link>
-      </div>
 
-      {/* PC用メニュー */}
-      <nav className="hidden md:block">
-        <ul className="flex gap-8">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/articles">Articles</Link>
-          </li>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-        </ul>
-      </nav>
+        {/* PC用メニュー */}
+        <nav className="hidden md:flex items-center gap-8">
+          <Link href="/" className="text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]">
+            HOME
+          </Link>
+          <Link href="/articles" className="text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]">
+            FRONT-END
+          </Link>
+          <Link href="/articles" className="text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]">
+            BACK-END
+          </Link>
+          <Link href="/articles" className="text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]">
+            CLOUD
+          </Link>
+          <Link href="/about" className="text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]">
+            ABOUT
+          </Link>
+          <div className="ml-4">
+            <input
+              type="text"
+              placeholder="Search for tech articles..."
+              className="bg-glassBg backdrop-blur-glass border border-subColor/30 rounded-lg px-4 py-2 text-fontColor placeholder-fontSecondary focus:outline-none focus:border-accentColor focus:shadow-neon transition w-64"
+            />
+          </div>
+        </nav>
 
-      {/* ハンバーガーメニューボタン */}
-      <button
-        className="md:hidden p-4 bg-accentColor rounded-full shadow-lg hover:bg-opacity-90 transition-all z-50"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        style={{
-          clipPath:
-            'polygon(50% 0%, 90% 20%, 100% 60%, 90% 80%, 50% 100%, 10% 80%, 0% 60%, 10% 20%)',
-        }}
-      >
-        <div
-          className={`w-5 h-0.5 bg-white mb-1.5 transition-all ${
-            isMenuOpen ? 'rotate-45 translate-y-2' : ''
-          }`}
-        ></div>
-        <div
-          className={`w-5 h-0.5 bg-white mb-1.5 transition-all ${
-            isMenuOpen ? 'opacity-0' : ''
-          }`}
-        ></div>
-        <div
-          className={`w-5 h-0.5 bg-white transition-all ${
-            isMenuOpen ? '-rotate-45 -translate-y-2' : ''
-          }`}
-        ></div>
-      </button>
+        {/* ハンバーガーメニューボタン */}
+        <button
+          className="md:hidden p-2 text-subColor"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <div className={`w-6 h-0.5 bg-subColor mb-1.5 transition-all shadow-[0_0_5px_rgba(82,190,198,0.5)] ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+          <div className={`w-6 h-0.5 bg-subColor mb-1.5 transition-all shadow-[0_0_5px_rgba(82,190,198,0.5)] ${isMenuOpen ? 'opacity-0' : ''}`}></div>
+          <div className={`w-6 h-0.5 bg-subColor transition-all shadow-[0_0_5px_rgba(82,190,198,0.5)] ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+        </button>
 
-      {/* スライドメニュー */}
-      <div
-        className={`fixed top-0 right-0 h-screen w-64 bg-gray-800 text-white transform transition-transform duration-300 ease-in-out z-40 ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className="pt-16 px-4">
-          <nav>
-            <ul className="space-y-4">
-              <li>
-                <Link href="/" className="block py-2 hover:text-accentColor">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/articles"
-                  className="block py-2 hover:text-accentColor"
-                >
-                  Articles
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="block py-2 hover:text-accentColor"
-                >
-                  About
-                </Link>
-              </li>
-            </ul>
-          </nav>
+        {/* スライドメニュー */}
+        <div
+          className={`fixed top-0 right-0 h-screen w-64 bg-glassBg backdrop-blur-glass-strong border-l border-subColor/30 shadow-glass transform transition-transform duration-300 ease-in-out z-40 ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div className="pt-20 px-6">
+            <nav>
+              <ul className="space-y-4">
+                <li>
+                  <Link href="/" className="block py-2 text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]">
+                    HOME
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/articles" className="block py-2 text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]">
+                    Articles
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" className="block py-2 text-fontColor hover:text-accentColor transition hover:drop-shadow-[0_0_8px_rgba(82,190,198,0.5)]">
+                    About
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-      </div>
 
-      {/* オーバーレイ */}
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30"
-          onClick={() => setIsMenuOpen(false)}
-        ></div>
-      )}
+        {/* オーバーレイ */}
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 bg-baseColor/60 backdrop-blur-sm z-30"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+        )}
+      </div>
     </header>
   );
 };

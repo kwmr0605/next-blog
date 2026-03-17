@@ -51,27 +51,33 @@ export default function ArticleList() {
   return (
     <DefaultLayout>
       {({ setHoveredArticle }) => (
-        <div className="max-w-[1200px] mx-auto mb-20 px-4">
-          <h1 className="text-center text-2xl font-bold my-10">記事一覧</h1>
+        <div className="max-w-[1200px] mx-auto mb-20 px-6 py-12">
+          {/* タイトル */}
+          <div className="glass-card rounded-2xl p-6 mb-8 shadow-glass relative overflow-hidden">
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-accentColor/10 rounded-full blur-3xl"></div>
+            <h1 className="text-center text-2xl font-bold text-subColor drop-shadow-lg relative">記事一覧</h1>
+          </div>
 
-          <div className="flex justify-end mb-8">
-            <div className="flex">
+          {/* 検索バー */}
+          <div className="flex justify-center md:justify-end mb-8">
+            <div className="flex glass-card rounded-lg overflow-hidden shadow-glass">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="キーワード"
-                className="px-4 py-2 border border-r-0 border-accentColor rounded-l-sm focus:outline-none"
+                placeholder="キーワード検索..."
+                className="px-4 py-2 bg-transparent border-none focus:outline-none text-fontColor placeholder-fontSecondary w-64"
               />
               <button
                 onClick={handleSearch}
-                className="px-4 py-2 text-white rounded-r-sm bg-accentColor w-20 border border-accentColor"
+                className="px-6 py-2 bg-accentColor/80 hover:bg-accentColor text-subColor font-medium transition-all hover:shadow-neon backdrop-blur-sm"
               >
                 検索
               </button>
             </div>
           </div>
 
+          {/* 記事一覧 */}
           <div className="space-y-6">
             <ArticleItems
               articles={currentArticles}
@@ -79,16 +85,17 @@ export default function ArticleList() {
             />
           </div>
 
+          {/* ページネーション */}
           <div className="flex justify-center mt-10 gap-2">
             {Array.from({ length: totalPages }, (_, i) => i + 1).map(
               (number) => (
                 <button
                   key={number}
                   onClick={() => handlePageChange(number)}
-                  className={`px-4 py-2 rounded-sm ${
+                  className={`px-4 py-2 rounded-lg transition-all ${
                     currentPage === number
-                      ? 'bg-accentColor text-white'
-                      : 'bg-white text-accentColor'
+                      ? 'glass-card text-accentColor shadow-neon border-accentColor/40'
+                      : 'glass-card text-fontColor hover:text-accentColor hover:shadow-glass-hover'
                   }`}
                 >
                   {number}
