@@ -34,9 +34,9 @@ export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
   }, [toc]);
 
   return (
-    <div className="glass-card rounded-xl p-6 shadow-glass relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-32 h-32 bg-accentColor/5 rounded-full blur-2xl"></div>
-      <p className="font-bold text-lg mb-4 text-subColor drop-shadow-md relative flex items-center gap-2">
+    <div className="glass-card rounded-xl p-6 shadow-glass relative">
+      <div className="absolute top-0 right-0 w-32 h-32 bg-accentColor/5 rounded-full blur-2xl pointer-events-none -z-10"></div>
+      <p className="font-bold text-lg mb-4 text-subColor drop-shadow-md relative flex items-center gap-2 shrink-0">
         <svg
           className="w-5 h-5 text-accentColor"
           fill="none"
@@ -53,7 +53,7 @@ export const TableOfContents = ({ toc }: { toc: TocItem[] }) => {
         目次
       </p>
       <ul
-        className="space-y-1 relative overflow-y-auto max-h-[calc(100vh-12rem)] pr-2"
+        className="space-y-1 relative overflow-y-auto max-h-[calc(100vh-16rem)] pr-2"
         style={{ scrollbarWidth: 'thin' }}
       >
         {toc.map((data) => (

@@ -32,12 +32,9 @@ export default function ArticleDetail({
 
   return (
     <DefaultLayout>
-      <div className="article-container max-w-[1200px] mx-auto px-6 py-12 mb-20">
+      <div className="max-w-[1200px] mx-auto px-6 py-12 mb-20">
         {/* タイトルセクション */}
-        <div
-          className="glass-card rounded-2xl p-6 md:p-10 mb-10 relative shadow-glass"
-          style={{ overflow: 'visible' }}
-        >
+        <div className="glass-card rounded-2xl p-6 md:p-10 mb-10 relative shadow-glass overflow-visible">
           <div
             className="absolute -top-20 -right-20 w-40 h-40 bg-accentColor/5 rounded-full blur-3xl pointer-events-none"
             style={{ zIndex: -1 }}
@@ -59,10 +56,13 @@ export default function ArticleDetail({
           )}
         </div>
 
-        <div className="flex gap-6 items-start">
+        <div className="flex gap-6 items-start relative">
           {/* 記事コンテンツ */}
-          <article className="flex-1 max-w-5xl glass-card rounded-2xl p-6 md:p-12 shadow-glass relative">
-            <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-accentColor/5 rounded-full blur-3xl pointer-events-none"></div>
+          <article
+            className="flex-1 glass-card rounded-2xl p-6 md:p-12 shadow-glass relative overflow-visible"
+            style={{ minWidth: 0 }}
+          >
+            <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-accentColor/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
             <div
               dangerouslySetInnerHTML={{
                 __html: addIdsToHeadings(article.content),
@@ -84,11 +84,8 @@ export default function ArticleDetail({
           </article>
 
           {/* サイドバー（目次） */}
-          <aside className="w-[300px] hidden lg:block">
-            <div
-              className="sticky top-24"
-              style={{ maxHeight: 'calc(100vh - 7rem)' }}
-            >
+          <aside className="w-[300px] hidden lg:block shrink-0">
+            <div className="sticky top-24 max-h-[calc(100vh-7rem)]">
               <TableOfContents toc={toc} />
             </div>
           </aside>
