@@ -4,9 +4,9 @@ import Footer from '../Footer';
 
 const DefaultLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Header />
-      <main className="flex-grow pt-[72px] relative">{children}</main>
+      <main className="flex-grow pt-[72px]">{children}</main>
       <Footer />
     </div>
   );

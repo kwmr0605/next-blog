@@ -32,7 +32,7 @@ export default function ArticleDetail({
 
   return (
     <DefaultLayout>
-      <div className="max-w-[1200px] mx-auto px-6 py-12 mb-20">
+      <div className="max-w-[1200px] mx-auto px-6 py-12 mb-20 overflow-visible">
         {/* タイトルセクション */}
         <div className="glass-card rounded-2xl p-6 md:p-10 mb-10 relative shadow-glass overflow-visible">
           <div
