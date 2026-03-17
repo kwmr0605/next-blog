@@ -78,6 +78,24 @@ pre {
     inset 0 1px 0 rgba(82, 190, 198, 0.2) !important;
 }
 
+/* モダンなセレクトボックスのスタイル */
+select option {
+  background-color: #1a2332;
+  color: #e1edf6;
+  padding: 8px;
+}
+
+select option:hover,
+select option:focus,
+select option:checked {
+  background: linear-gradient(
+    90deg,
+    rgba(82, 190, 198, 0.2) 0%,
+    transparent 100%
+  );
+  color: #52bec6;
+}
+
 body {
   @apply bg-baseColor text-fontColor;
   font-family:
