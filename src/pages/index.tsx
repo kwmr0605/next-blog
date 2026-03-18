@@ -113,6 +113,7 @@ export default function Home({
                       <CategoryCard
                         key={category.id}
                         category={category.name}
+                        categoryId={category.id}
                         subcategory={`${articles.length} articles`}
                         articles={articles}
                         icon={getCategoryIcon(category.id)}

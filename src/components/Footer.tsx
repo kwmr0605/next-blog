@@ -35,11 +35,11 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Tag Cloud & Social */}
+          {/* Trending Tags & Social */}
           <div className="relative">
             <div className="absolute top-0 right-0 w-40 h-40 bg-accentColor/5 rounded-full blur-3xl"></div>
             <h3 className="text-subColor font-bold mb-4 drop-shadow-md relative">
-              Tag Cloud
+              Trending Tags
             </h3>
             <div className="flex flex-wrap gap-2 mb-6 relative">
               {tags &&

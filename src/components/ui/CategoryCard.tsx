@@ -3,6 +3,7 @@ import { Article } from '@/type/Article';
 
 interface CategoryCardProps {
   category: string;
+  categoryId: string;
   subcategory: string;
   articles: Article[];
   icon?: React.ReactNode;
@@ -18,6 +19,7 @@ const stripHtml = (html: string): string => {
 
 const CategoryCard = ({
   category,
+  categoryId,
   subcategory,
   articles,
   icon,
@@ -36,8 +38,8 @@ const CategoryCard = ({
             </h3>
           </div>
           {icon && (
-            <div className="text-accentColor opacity-60 drop-shadow-[0_0_10px_rgba(82,190,198,0.3)]">
-              {icon}
+            <div className="w-10 h-10 rounded-full bg-accentColor/20 backdrop-blur-sm border border-accentColor/40 flex items-center justify-center shadow-neon flex-shrink-0">
+              <div className="text-accentColor">{icon}</div>
             </div>
           )}
         </div>
@@ -114,7 +116,7 @@ const CategoryCard = ({
 
         {/* Read More */}
         <Link
-          href={`/articles?category=${category.toLowerCase()}`}
+          href={`/articles?category=${categoryId}`}
           className="flex items-center gap-2 text-accentColor hover:gap-3 transition-all mt-6 text-sm font-medium group/link drop-shadow-[0_0_8px_rgba(82,190,198,0.3)]"
         >
           <span>Read More</span>
