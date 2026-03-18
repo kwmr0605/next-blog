@@ -32,9 +32,21 @@ export const useArticle = (id: string) => {
   };
 };
 
-export async function fetchArticles() {
+export async function fetchArticles(
+  options: { limit?: number; offset?: number; filters?: string } = {}
+) {
+  const { limit = 10, offset = 0, filters } = options;
+  const params = new URLSearchParams({
+    limit: limit.toString(),
+    offset: offset.toString(),
+  });
+
+  if (filters) {
+    params.append('filters', filters);
+  }
+
   const res = await fetch(
-    `https://${process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/articles`,
+    `https://${process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/articles?${params.toString()}`,
     {
       headers: {
         'X-API-KEY': process.env.NEXT_PUBLIC_MICROCMS_API_KEY!,
