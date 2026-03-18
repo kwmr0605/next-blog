@@ -8,6 +8,14 @@ interface CategoryCardProps {
   icon?: React.ReactNode;
 }
 
+// HTMLタグを除去してプレーンテキストを取得
+const stripHtml = (html: string): string => {
+  return html
+    .replace(/<[^>]*>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .trim();
+};
+
 const CategoryCard = ({
   category,
   subcategory,
@@ -39,8 +47,9 @@ const CategoryCard = ({
       <div className="p-6 relative">
         <p className="text-fontSecondary text-sm mb-4 line-clamp-2">
           {articles[0]?.description ||
-            articles[0]?.content.substring(0, 100) ||
-            '記事を探索してテクノロジーの最新トピックを学びましょう'}
+            (articles[0]?.content
+              ? stripHtml(articles[0].content).substring(0, 100) + '...'
+              : '記事を探索してテクノロジーの最新トピックを学びましょう')}
         </p>
 
         <div className="space-y-3">
