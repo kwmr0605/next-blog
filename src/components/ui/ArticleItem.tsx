@@ -21,7 +21,7 @@ const ArticleItem = ({ article, setHoveredArticle }: ArticleItemProps) => {
       <Link href={`/articles/${article.id}`} className="block relative">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
-            <h3 className="text-xl font-bold text-subColor group-hover:text-accentColor transition-colors mb-3 drop-shadow-md line-clamp-2">
+            <h3 className="text-lg md:text-xl font-bold text-subColor group-hover:text-accentColor transition-colors mb-3 drop-shadow-md break-words">
               {article.title}
             </h3>
 
