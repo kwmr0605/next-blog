@@ -1,4 +1,5 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
+import Image from 'next/image';
 
 // スキルセットデータ
 const skillsets = [
@@ -138,10 +139,15 @@ export default function About() {
           <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-accentColor/5 rounded-full blur-3xl animate-pulse-glow delay-1000"></div>
 
           <div className="flex flex-col md:flex-row items-center gap-8 relative">
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-accentColor via-accentColor/80 to-accentColor/60 flex items-center justify-center shadow-neon flex-shrink-0 animate-float">
-              <span className="text-subColor text-4xl md:text-5xl font-bold">
-                五
-              </span>
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-accentColor/30 shadow-neon flex-shrink-0 animate-float bg-glassBg backdrop-blur-glass">
+              <Image
+                src="/images/icon.png"
+                alt="五月雨ラボ アイコン"
+                width={128}
+                height={128}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             <div className="text-center md:text-left">
               <h1 className="text-3xl md:text-4xl font-bold text-subColor drop-shadow-lg mb-2">
@@ -160,7 +166,7 @@ export default function About() {
         {/* スキルセットセクション */}
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-full bg-accentColor/20 backdrop-blur-sm border border-accentColor/40 flex items-center justify-center shadow-neon">
+            <div className="w-10 h-10 rounded-full bg-accentColor/20 backdrop-blur-sm border border-accentColor/40 flex items-center justify-center shadow-neon flex-shrink-0 self-center">
               <svg
                 className="w-5 h-5 text-accentColor"
                 fill="none"
@@ -175,7 +181,7 @@ export default function About() {
                 />
               </svg>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-subColor drop-shadow-lg">
+            <h2 className="text-2xl md:text-3xl font-bold text-subColor drop-shadow-lg leading-tight self-center">
               Skill Set
             </h2>
           </div>

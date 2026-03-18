@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 const Header = () => {
@@ -23,8 +24,15 @@ const Header = () => {
           href="/"
           className="flex items-center gap-3 hover:opacity-80 transition group"
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-accentColor to-accentColor/60 rounded-lg flex items-center justify-center shadow-neon group-hover:shadow-glass-hover transition-all">
-            <span className="text-subColor text-xl font-bold">五</span>
+          <div className="w-10 h-10 rounded-lg overflow-hidden border-2 border-accentColor/30 shadow-neon group-hover:shadow-glass-hover transition-all bg-glassBg backdrop-blur-glass">
+            <Image
+              src="/images/icon.png"
+              alt="五月雨ラボ"
+              width={40}
+              height={40}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
           <span className="text-xl font-bold text-subColor drop-shadow-lg">
             五月雨ラボ
