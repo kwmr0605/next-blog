@@ -29,13 +29,11 @@ const CategoryCard = ({
       {/* ヘッダー */}
       <div className="p-6 border-b border-subColor/20 relative">
         <div className="flex items-start justify-between mb-2">
-          <div>
-            <p className="text-xs text-fontSecondary uppercase mb-1">
+          <div className="flex-1">
+            <h3 className="text-xl font-bold text-subColor drop-shadow-md mb-1">
               {category}
-            </p>
-            <h3 className="text-lg font-bold text-subColor drop-shadow-md">
-              {subcategory}
             </h3>
+            <p className="text-xs text-fontSecondary">{subcategory}</p>
           </div>
           {icon && (
             <div className="w-10 h-10 rounded-full bg-accentColor/20 backdrop-blur-sm border border-accentColor/40 flex items-center justify-center shadow-neon flex-shrink-0">

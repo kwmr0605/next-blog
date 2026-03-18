@@ -80,7 +80,7 @@ interface HomeProps {
   featuredArticle: Article | null;
   categoriesWithArticles: CategoryWithArticles[];
   recentArticles: Article[];
-  allTags: string[];
+  allTags: Tag[];
 }
 
 export default function Home({
@@ -175,8 +175,8 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     // サイドバー用の新着記事（全記事を渡す）
     const recentArticles = articles;
 
-    // タグ名の配列を作成
-    const allTags = tags.map((tag: Tag) => tag.name);
+    // タグオブジェクトの配列を渡す
+    const allTags = tags;
 
     return {
       props: {
@@ -185,7 +185,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
         recentArticles,
         allTags,
       },
-      revalidate: 60, // ISR: 60秒ごとに再生成（Netlifyの場合は On-Demand ISR を推奨）
+      revalidate: 10, // ISR: 10秒ごとに再生成（開発中は短めに設定）
     };
   } catch (error) {
     console.error('Failed to fetch data:', error);

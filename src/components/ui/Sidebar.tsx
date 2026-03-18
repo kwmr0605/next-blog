@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { Article } from '@/type/Article';
+import { Tag } from '@/type/Tag';
 
 interface SidebarProps {
   articles: Article[];
-  tags: string[];
+  tags: Tag[];
 }
 
 const Sidebar = ({ articles, tags }: SidebarProps) => {
@@ -91,11 +92,11 @@ const Sidebar = ({ articles, tags }: SidebarProps) => {
         <div className="flex flex-wrap gap-2 relative">
           {tags.slice(0, 15).map((tag) => (
             <Link
-              key={tag}
-              href={`/articles?tag=${tag.toLowerCase()}`}
+              key={tag.id}
+              href={`/articles?tag=${tag.id}`}
               className="px-3 py-1.5 rounded-full bg-glassBg backdrop-blur-glass border border-subColor/30 text-fontColor text-xs hover:bg-glassHover hover:text-accentColor hover:border-accentColor/50 transition-all hover:shadow-neon"
             >
-              #{tag}
+              #{tag.name}
             </Link>
           ))}
         </div>
